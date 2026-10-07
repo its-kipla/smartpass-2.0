@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Create account | Smart Pass | Konza Technology City</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="green">
+<div class="split">
+    <div class="art" role="img" aria-label="Digital pathway through a data city"></div>
+
+    <section class="pane">
+        <form class="lcard" id="registerForm">
+            <a class="brand" href="index.html">
+                <svg viewBox="0 0 160 138" fill="none" stroke="#0b5a2a" stroke-width="2.6" stroke-linejoin="round" aria-hidden="true"><path d="M78 100L70 80L50 70L30 72M70 80L60 60L48 48M60 60L62 40M78 100L80 70L82 45L90 30M82 45L74 32M80 70L100 62L118 50M78 100L92 85L112 80L132 84M92 85L104 98L120 100M70 80L40 90L18 88M66 72L56 56M100 62L104 44M112 80L122 68"/><g stroke-width="2.2"><circle cx="26" cy="72" r="4"/><circle cx="46" cy="44" r="4"/><circle cx="62" cy="36" r="4"/><circle cx="92" cy="26" r="4"/><circle cx="72" cy="28" r="4"/><circle cx="122" cy="47" r="4"/><circle cx="136" cy="84" r="4"/><circle cx="124" cy="101" r="4"/><circle cx="14" cy="88" r="4"/><circle cx="54" cy="52" r="4"/><circle cx="104" cy="40" r="4"/><circle cx="125" cy="64" r="4"/></g><circle cx="86" cy="58" r="4.2" stroke="#e8101a" stroke-width="2.4"/><path d="M72 100h13v36H72z" fill="#0b5a2a" stroke="none"/></svg>
+                <span><b>KONZA</b><small>TECHNOLOGY CITY</small></span>
+            </a>
+
+            <h1>create your account</h1>
+            <p>register to book and manage your visits</p>
+
+            <div class="field">
+                <input type="text" name="fullName" placeholder="Full name" aria-label="Full name" autocomplete="name" minlength="2" required>
+            </div>
+            <div class="field">
+                <input type="email" name="email" placeholder="Email address" aria-label="Email address" autocomplete="email" required>
+            </div>
+            <div class="field">
+                <input type="tel" name="phone" placeholder="Phone number (optional)" aria-label="Phone number" autocomplete="tel">
+            </div>
+            <div class="field">
+                <input type="password" name="password" placeholder="Password (8 characters minimum)" aria-label="Password" autocomplete="new-password" minlength="8" required>
+            </div>
+            <div class="field">
+                <input type="password" name="confirmPassword" placeholder="Confirm password" aria-label="Confirm password" autocomplete="new-password" minlength="8" required>
+            </div>
+
+            <button class="go" type="submit">create account</button>
+            <p class="ok" id="formMessage" role="status" aria-live="polite" hidden></p>
+            <p class="reg">Already registered? <a href="login.html">Log in</a></p>
+        </form>
+
+        <a class="homelink" href="index.html">Home</a>
+    </section>
+</div>
+
+<script type="module" src="src/pages/register.js"></script>
+</body>
+</html>
