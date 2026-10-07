@@ -1,10 +1,15 @@
+export interface AuthResponse {
+  token: string;
+  user: Record<string, unknown>;
+}
+
 const TOKEN_KEY = 'smartpass_token';
 const USER_KEY = 'smartpass_user';
 
-export const getToken = () =>
+export const getToken = (): string | null =>
   localStorage.getItem(TOKEN_KEY) || sessionStorage.getItem(TOKEN_KEY);
 
-export const saveSession = ({ token, user }, remember = false) => {
+export const saveSession = ({ token, user }: AuthResponse, remember = false): void => {
   const storage = remember ? localStorage : sessionStorage;
   const otherStorage = remember ? sessionStorage : localStorage;
 
@@ -14,7 +19,7 @@ export const saveSession = ({ token, user }, remember = false) => {
   storage.setItem(USER_KEY, JSON.stringify(user));
 };
 
-export const clearSession = () => {
+export const clearSession = (): void => {
   for (const storage of [localStorage, sessionStorage]) {
     storage.removeItem(TOKEN_KEY);
     storage.removeItem(USER_KEY);

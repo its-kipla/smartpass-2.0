@@ -1,24 +1,26 @@
 # Smart Pass frontend
 
-Static HTML/CSS frontend for the Smart Pass API. Browser code is organized by
-responsibility to mirror the backend's layered structure:
+React and TypeScript frontend for the Smart Pass API. The application is built
+with Vite and organized by responsibility:
 
-| Frontend | Backend equivalent | Responsibility |
-|---|---|---|
-| `src/config/` | `src/config/` | API configuration |
-| `src/services/` | `src/services/` | HTTP requests and API operations |
-| `src/pages/` | `src/controllers/` | Page-specific form and interaction logic |
-| `src/utils/` | `src/utils/` | Shared session helpers |
+| Frontend | Responsibility |
+|---|---|
+| `src/components/` | Shared React components |
+| `src/pages/` | Route-level screens |
+| `src/config/` | API configuration |
+| `src/services/` | Typed API requests |
+| `src/utils/` | Shared session helpers |
 
 ## Run locally
 
 1. Start the backend using the instructions in `../backend/README.md`.
-2. From this directory, run `npm run dev` (or `python3 -m http.server 3000`).
-3. Open <http://localhost:3000>.
+2. From this directory, run `npm install`, then `npm run dev`.
+3. Open the local URL printed by Vite (normally <http://localhost:5173>).
 
-The API defaults to `/api`. To override it, define
-`window.SMARTPASS_API_URL` before the page's module script is loaded.
+Run `npm run build` to type-check the application and create a production build
+in `dist/`. Configure the API's `CLIENT_ORIGIN` to match the Vite origin for
+local development. The API defaults to `/api`; to override it, set
+`window.SMARTPASS_API_URL` before the application starts.
 
-Create an account or log in before submitting a visit booking. The API's
-`CLIENT_ORIGIN` setting should match the frontend origin (`http://localhost:3000`
-for the local server above).
+The client routes keep the previous `.html` paths working as aliases. Production
+hosting should serve `index.html` as the fallback for application routes.
