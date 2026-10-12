@@ -25,7 +25,12 @@ export default function SiteNav() {
             </Link>
           </li>
           <li>
-            <Link className="login" to="/login">
+            <Link className={pathname.includes('register') ? 'on' : ''} to="/register">
+              sign up
+            </Link>
+          </li>
+          <li>
+            <Link className={`login${pathname.includes('login') ? ' on' : ''}`} to="/login">
               log in
             </Link>
           </li>
