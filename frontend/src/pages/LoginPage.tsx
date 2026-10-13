@@ -25,8 +25,14 @@ export default function LoginPage() {
       });
       saveSession(result, values.get('remember') === 'on');
 
-      const destination = new URLSearchParams(location.search).get('next');
-      navigate(destination === 'book-visit.html' ? '/book-visit' : '/', { replace: true });
+      const requestedDestination = new URLSearchParams(location.search).get('next');
+      const destination =
+        requestedDestination === 'book-visit.html'
+          ? '/book-visit'
+          : requestedDestination && /^\/confirmation\/[0-9a-f-]+$/i.test(requestedDestination)
+            ? requestedDestination
+            : '/';
+      navigate(destination, { replace: true });
     } catch (error) {
       setMessage(error instanceof Error ? error.message : 'Unable to log in');
     } finally {

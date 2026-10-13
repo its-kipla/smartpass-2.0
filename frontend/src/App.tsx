@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import BookVisitPage from './pages/BookVisitPage';
+import ConfirmationPage from './pages/confirmationpage';
 import HomePage from './pages/HomePage';
 import HowItWorksPage from './pages/HowItWorksPage';
 import LoginPage from './pages/LoginPage';
@@ -18,6 +19,7 @@ export default function App() {
       <Route path="/book-visit.html" element={<BookVisitPage />} />
       <Route path="/how-it-works" element={<HowItWorksPage />} />
       <Route path="/how-it-works.html" element={<HowItWorksPage />} />
+      <Route path="/confirmation/:id" element={<ConfirmationPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

@@ -3,6 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const routes = require('./routes');
 const errorHandler = require('./middleware/errorHandler');
+const path = require('path');
 
 const app = express();
 const allowedOrigins = (process.env.CLIENT_ORIGIN || 'http://localhost:5173,http://localhost:3000')
@@ -24,10 +25,13 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
 app.use('/api', routes);
-
+app.get(/^\/(?!api|health).*/, (req, res) =>
+  res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'))
+);
 app.use((req, res) => res.status(404).json({ error: 'Route not found' }));
 app.use(errorHandler);
 

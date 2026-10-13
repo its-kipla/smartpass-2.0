@@ -7,6 +7,7 @@ const schemas = require('../validators/schemas');
 router.get('/visit-types', ctrl.listTypes);
 router.post('/visits', authenticate, validate(schemas.createVisit), ctrl.create);
 router.get('/visits', authenticate, ctrl.listMine);
+router.get('/visits/:id', authenticate, ctrl.getMine);
 router.get('/visits/:id/qr', authenticate, ctrl.getPass);
 router.patch('/visits/:id/cancel', authenticate, ctrl.cancel);
 

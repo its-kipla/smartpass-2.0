@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SiteNav from '../components/SiteNav';
 import { createVisit, getVisitTypes, type VisitType } from '../services/visit.service';
 
@@ -21,6 +21,7 @@ export default function BookVisitPage() {
   const [isError, setIsError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const today = getNairobiToday();
+  const navigate = useNavigate();
 
   useEffect(() => {
     let active = true;
@@ -51,13 +52,12 @@ export default function BookVisitPage() {
     setIsError(false);
 
     try {
-      await createVisit({
+      const { visit } = await createVisit({
         visitTypeId: Number(values.get('visitTypeId')),
         visitDate: String(values.get('date')),
         purpose: String(values.get('purpose')).trim(),
       });
-      setMessage('Booking submitted. You can review its status after signing in.');
-      form.reset();
+      navigate(`/confirmation/${encodeURIComponent(visit.id)}`);
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unable to submit your booking';
       const needsLogin = /authentication|required|expired token/i.test(errorMessage);

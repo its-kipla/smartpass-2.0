@@ -137,8 +137,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .goo{display:block;width:100%;max-width:330px;margin:14px auto;border:1px solid var(--glass-line);background:transparent;color:#fff;padding:9px;font:inherit;font-size:.95rem;cursor:pointer}
 .goo:hover{border-color:var(--neon)}
 .reg{text-align:center;font-size:.75rem;margin:10px 0 0}.reg a{color:var(--neon);text-decoration:none;margin-left:12px}
-.homelink{position:absolute;right:28px;bottom:24px;padding:20px 14px;border:1.5px dashed rgba(255,255,255,.5);border-radius:6px;font-size:.9rem;text-decoration:none}
-.homelink:hover{border-color:var(--neon);color:var(--neon)}
+.homelink{position:absolute;right:28px;bottom:24px;display:inline-flex;align-items:center;justify-content:center;min-width:112px;padding:10px 20px;border:1px solid var(--glass-line);border-radius:999px;background:#067a3b;color:#fff;font-size:.9rem;font-weight:500;text-decoration:none;transition:filter .15s ease,transform .15s ease}
+.homelink:hover{filter:brightness(1.12);transform:translateY(-1px)}
 
 /* ---------- 8. BOOK A VISIT ---------- */
 .bk{width:min(1240px,94%);margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:28px;padding:8px 0 36px;flex:1;align-items:start}
@@ -187,6 +187,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .ok{text-align:center;font-weight:500;color:var(--neon);margin:14px 0 0}
 .ok.error{color:#ffb4b4}
 .go:disabled,.sub:disabled{opacity:.65;cursor:wait}
+.confirmation{width:min(680px,100%);margin:24px auto}
+.confirmation-status{text-transform:capitalize;font-size:1.1rem}
+.confirmation-details{display:grid;gap:10px;margin:24px 0}
+.confirmation-details div{display:grid;grid-template-columns:120px 1fr;gap:12px}
+.confirmation-details dt{color:#b9d9c5;font-weight:500}
+.confirmation-details dd{margin:0;overflow-wrap:anywhere}
+.pass-qr{display:grid;place-items:center;margin:24px auto;padding:14px;width:max-content;max-width:100%;border-radius:12px;background:#fff}
+.pass-qr img{display:block;width:min(260px,100%);height:auto}
+.confirmation-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:24px 0 0}
+.confirmation-links .btn{justify-content:center}
 
 /* ---------- 9. HOW IT WORKS ---------- */
 .hw{width:min(1240px,94%);margin:0 auto;padding:10px 0 36px;flex:1}
